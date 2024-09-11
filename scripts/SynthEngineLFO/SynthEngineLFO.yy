@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SynthEngineLFO",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SynthEngineLFO",
+  "parent":{
+    "name":"SynthEngine",
+    "path":"folders/Libs/SynthEngine.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
