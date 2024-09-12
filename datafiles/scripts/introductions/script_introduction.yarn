@@ -1,0 +1,26 @@
+#__PrivCrochet_version:1
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 175,383
+__PrivCrochet_tags: 
+title: Start
+---
+Narrator: That was quite a nasty fall, are you okay?
+    -> I think so
+        <<jump Option A>>
+    -> I, I don't know, where am I?
+        <<jump Option B>>
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 508,74
+__PrivCrochet_tags: 
+title: Option A
+---
+Narrator: Good, I am glad that you are okay.
+===
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 823,204
+__PrivCrochet_tags: 
+title: Option B
+---
+Narrator: You are somewhere we all come to once.
+===

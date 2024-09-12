@@ -1,0 +1,14 @@
+#__PrivCrochet_version:1
+__PrivCrochet_colorID: 0
+__PrivCrochet_position: 435,271
+__PrivCrochet_tags: 
+title: Start
+---
+Lemi: This is some text.
+Lemi: And here's some more text.
+-> What about a choice?
+    Lemi: I guess that's fine.
+-> Or maybe this?
+    Lemi: If you want!
+Lemi: And that's fine.
+===
