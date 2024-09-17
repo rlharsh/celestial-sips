@@ -120,8 +120,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sprite Fonts",
-    "path":"folders/Sprites/Sprite Fonts.yy",
+    "name":"Sprites",
+    "path":"folders/Libs/SDS/Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

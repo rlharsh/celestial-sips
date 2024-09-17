@@ -3,6 +3,7 @@ render_surf = -1;
 graceful_destroy = false;
 
 refreshGUI = function(width = undefined, height = undefined){
+	/*
 	var tar_width = width ?? PXLUI_UI_W;
 	var tar_height = height ?? PXLUI_UI_H;
 	
@@ -11,6 +12,12 @@ refreshGUI = function(width = undefined, height = undefined){
 	
 	display_set_gui_size(PXLUI_UI_W,PXLUI_UI_H);
 	display_set_gui_maximize(_gui_xscale,_gui_yscale,0,0)
+	*/
+	if (instance_exists(obj_controller_gui)) {
+		with (obj_controller_gui) {
+				alarm[1] = 1;
+		}
+	}
 }
 
 refreshGUI();

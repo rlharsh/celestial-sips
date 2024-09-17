@@ -15,4 +15,3 @@ if(is_full_screen != _full)
 if (keyboard_check(vk_tab)) {
 	window_set_fullscreen(!window_get_fullscreen());	
 }
-

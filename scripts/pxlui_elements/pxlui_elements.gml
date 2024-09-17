@@ -463,8 +463,6 @@ function pxlui_button(_x,_y, _text = "button", _callback = function(){pxlui_log(
 			_height = round(max(height,string_height(text)+padding.bottom+padding.top));
 		}		
 		
-                  
-		
 		width = _width;
 		height = _height;
 		
@@ -578,12 +576,13 @@ function pxlui_button(_x,_y, _text = "button", _callback = function(){pxlui_log(
 		var _sprite_h = (height/sprite_get_height(sprite_index))+(__.animation_value*animation_yscale);
 		
 		s_index = image_index;
+		
 				if(is_hovering()){
 					s_index = hover_index;
 				}
 				
 		o_colour = draw_get_color();
-		t_colour = c_white;
+		t_colour = c_black;
 		if (is_hovering()) {
 			t_colour = c_black;	
 		}

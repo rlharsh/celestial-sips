@@ -12,8 +12,8 @@
   "duration":0.13932,
   "name":"snd_voice2",
   "parent":{
-    "name":"FC_DialogueSystem",
-    "path":"folders/Sounds/FC_DialogueSystem.yy",
+    "name":"Sounds",
+    "path":"folders/Libs/SDS/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
