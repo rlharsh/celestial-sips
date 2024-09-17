@@ -63,8 +63,8 @@ global.pxlui_settings = {
 	theme: "minimal",
 
 	
-	ResW : 1280,
-	ResH : 720,
+	ResW : 480,
+	ResH : 270,
 }
 	
 	

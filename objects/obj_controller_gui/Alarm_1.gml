@@ -5,6 +5,8 @@ surface_resize(application_surface,
 display_set_gui_size(round(current_width*gui_scale),
 									   round(current_height*gui_scale));
 
+show_debug_message("Hello there.");
+
 if(!window_get_fullscreen())
 {	//We aren't in full screen, 
 	window_set_size(current_width*window_scale,current_height*window_scale);
