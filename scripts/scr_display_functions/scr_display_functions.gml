@@ -80,6 +80,7 @@ function set_font(_font) {
 			if (_font_controller.fonts_database[_i].name == _font) {
 				_font_controller.default_font = _font_controller.fonts_database[_i];
 				draw_set_font(_font_controller.default_font.font_ref);
+				scribble_font_set_default(_font_controller.fonts_database[_i].name);
 			}
 		}
 	}

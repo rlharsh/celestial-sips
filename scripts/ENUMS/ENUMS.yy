@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ENUMS",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ENUMS",
+  "parent":{
+    "name":"SUIS",
+    "path":"folders/Libs/SUIS.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
