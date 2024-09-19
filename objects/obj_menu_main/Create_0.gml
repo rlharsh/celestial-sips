@@ -1,98 +1,14 @@
-pxlui = new pxlui_create();
+_main_menu = new SimpleUI();
 
-var _group1 = new pxlui_group("0","0",[
-	new pxlui_button("100", "80","Continue", function() {
-		room_goto(rm_game_new_save);	
-	},{
-		width: 96,
-		height: 26,
-		animations:{
-			from: {image: 0, yoffset: 0},
-			to: {image: 1, yoffset: 3},
-		},
-		sprite_index: spr_button_bone_white,
-		hover_index: 1,
-		animation_duration: 5,
-		animation_curve: PXLUI_CURVES.ease_in,
-		halign: fa_center,
-		valign: fa_center,
-	}),
-	new pxlui_button("100", "91","New Game",,{
-		width: 96,
-		height: 26,
-		animations:{
-			from: {image: 0, yoffset: 0},
-			to: {image: 1, yoffset: 3},
-		},
-		sprite_index: spr_button_bone_white,
-		hover_index: 1,
-		animation_duration: 5,
-		animation_curve: PXLUI_CURVES.ease_in,
-		halign: fa_center,
-		valign: fa_center,
-	}),
-	new pxlui_button("100", "102","Load Game",,{
-		width: 96,
-		height: 26,
-		animations:{
-			from: {image: 0, yoffset: 0},
-			to: {image: 1, yoffset: 3},
-		},
-		hover_index: 1,
-		sprite_index: spr_button_bone_white,
-		animation_duration: 5,
-		animation_curve: PXLUI_CURVES.ease_in,
-		halign: fa_center,
-		valign: fa_center,
-	}),
-	new pxlui_button("100", "113","Options",,{
-		width: 100,
-		height: 26,
-		animations:{
-			from: {image: 0, yoffset: 0},
-			to: {image: 1, yoffset: 3},
-		},
-		hover_index: 1,
-		sprite_index: spr_button_bone_white,
-		animation_duration: 5,
-		animation_curve: PXLUI_CURVES.ease_in,
-		halign: fa_center,
-		valign: fa_center,
-	}),
-	new pxlui_button("100", "124","Credits",,{
-		width: 96,
-		height: 26,
-		animations:{
-			from: {image: 0, yoffset: 0},
-			to: {image: 1, yoffset: 3},
-		},
-		hover_index: 1,
-		sprite_index: spr_button_bone_white,
-		animation_duration: 5,
-		animation_curve: PXLUI_CURVES.ease_in,
-		halign: fa_center,
-		valign: fa_center,
-	}),
-		new pxlui_button("100", "135","Exit", function() {
-			game_end(0);	
-		},{
-		width: 96,
-		height: 26,
-		animations:{
-			from: {image: 0, yoffset: 0},
-			to: {image: 1, yoffset: 3},
-		},
-		sprite_index: spr_button_bone_white,
-		hover_index: 1,
-		animation_duration: 5,
-		animation_curve: PXLUI_CURVES.ease_in,
-		halign: fa_center,
-		valign: fa_center,
-	}),
-],{width: display_get_gui_width(), height: display_get_gui_height(), halign: fa_center,valign: fa_center});
+var _main = new SimpleGroup("MAIN", 0, 0,,,,true);
 
-pxlui.add_page("DemoPage",[
-	_group1,
-]);
+_main.add_control(new SimpleButton(50, 40, _main, {
+	text: "[c_black]New Game",
+	width: 200
+}));
 
-pxlui.load_page("DemoPage");
+var _main_page = new SimplePage("UI_MAIN");
+_main_page.add_group(_main);
+
+_main_menu.add_page(_main_page);
+_main_menu.set_page("UI_MAIN");

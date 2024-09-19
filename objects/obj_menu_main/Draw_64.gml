@@ -1,1 +1,1 @@
-///menu.render(0);
+_main_menu.draw();

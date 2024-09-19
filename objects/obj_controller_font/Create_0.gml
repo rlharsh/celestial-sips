@@ -3,7 +3,7 @@ default_font = undefined;
 
 fonts_database = [
 	{
-		name:			"Carton",
+		name:			"spr_carton",
 		asset:			spr_carton,
 		attribution:	"https://damieng.com/typography/zx-origins/carton/",
 		separation:		2,

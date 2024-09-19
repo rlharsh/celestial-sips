@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_simple_user_interface_page",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_simple_user_interface_page",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Libs/SUIS/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
