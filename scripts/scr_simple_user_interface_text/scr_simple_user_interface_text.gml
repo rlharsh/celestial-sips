@@ -11,6 +11,7 @@ function SimpleText(_x, _y, _text, _parent, _shadow = false, _config = {}, _poin
 		xx					= _x * _parent.width / 100;
 		yy					= _y * _parent.height / 100;
 	}
+	
 	text_object	= scribble(_text);
 	text_width	= text_object.get_width();
 	text_height	= text_object.get_height();
@@ -35,25 +36,26 @@ function SimpleText(_x, _y, _text, _parent, _shadow = false, _config = {}, _poin
 		}
 		
 		if (alignment == UI_DISPLAY_ALIGNMENT.MIDDLE_CENTER) {
-			xx				= round(xx - _button_width / 2);
-			yy				= round(yy - _button_height / 2);
+			xx				= round(xx - text_width / 2);
+			yy				= round(yy - text_height / 2);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.TOP_LEFT) {
 			xx				= round(xx);
 			yy				= round(yy);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.TOP_RIGHT) {
-			xx				= round(xx - _button_width);
+			xx				= round(xx - text_width);
 			yy				= round(yy);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_LEFT) {
 			xx				= round(xx);
-			yy				= round(yy - _button_height);
+			yy				= round(yy - text_height);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_RIGHT) {
-			xx				= round(xx - _button_width);
-			yy				= round(yy - _button_height);
+			xx				= round(xx - text_width);
+			yy				= round(yy - text_height);
 		}
+		
 		if (shadow) {
 			text_object.blend(c_black, .6).draw(xx + 1, yy + 1);	
 		}

@@ -1,7 +1,7 @@
 function configuration_manager_save(){
-	var _appdata_path	= environment_get_variable("LOCALAPPDATA");
-	game_folder			= _appdata_path + "\\Celestial Sips\\";
-	configuration_file	= game_folder + "\\config.json";
+	var _appdata_path		= environment_get_variable("LOCALAPPDATA");
+	game_folder				= _appdata_path + "\\Celestial Sips\\";
+	configuration_file		= game_folder + "\\config.json";
 	
 	try {
 		var _config_file	= file_text_open_write(configuration_file);

@@ -16,7 +16,10 @@ _main.add_control(new SimpleButton(50, 60, _main, {
 
 _main.add_control(new SimpleButton(50, 68, _main, {
 	text: "[c_black]Settings",
-	width: 220
+	width: 220,
+	callback: function() {
+		configuration_manager_show_options();	
+	}
 }));
 
 _main.add_control(new SimpleButton(50, 76, _main, {
