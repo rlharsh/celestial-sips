@@ -33,6 +33,9 @@ function SimpleButton(_x, _y, _parent, _config = {}, _point_control = false) con
 	_button_icon_padding	= (icon == undefined) ? 0 : 6;
 	
 	_mouse_hovered			= false;
+	scale					= 1.0;
+	scale_tween				= undefined;
+	animation_played		= false;
 
 	static step = function() {
 		if (point_control) {
@@ -70,20 +73,37 @@ function SimpleButton(_x, _y, _parent, _config = {}, _point_control = false) con
 		// Check if the mouse is in the button paremeter.
 		if (point_in_rectangle(_mouse_x, _mouse_y, xx, yy, xx + _button_width, yy + _button_height)) {
 			_mouse_hovered = true;
+			
+			if (!animation_played) {
+				TweenFire(self, EaseOutQuad, TWEEN_MODE_ONCE, true, 0, 0.1, "scale", 1.0, 1.1);
+				scale_tween = TweenFire(self, EaseInQuad, TWEEN_MODE_ONCE, true, 0.1, 0.1, "scale", 1.1, 1.0);
+				animation_played = true;
+			}
+			
 			// Check if the left moust button has been pressed.
 			if (input_mouse_check_released(mb_left)) {
 				audio_play_sound(JDSherbert___Ultimate_UI_SFX_Pack___Cursor___4, 0, 0);
 				callback();
 			}
+			if (input_mouse_check_pressed(mb_left)) {
+				TweenFire(self, EaseOutQuad, TWEEN_MODE_ONCE, true, 0, 0.1, "scale", 1.0, 0.9);
+				scale_tween = TweenFire(self, EaseInQuad, TWEEN_MODE_ONCE, true, 0.1, 0.1, "scale", 0.9, 1.0);
+				animation_played = true;
+			}
 		} else {
 			_mouse_hovered = false;	
+			animation_played = false;
 		}
     }
     
     static draw = function() {
+	    var scaled_width = _button_width * scale;
+	    var scaled_height = _button_height * scale;
+	    var scale_offset_x = (scaled_width - _button_width) / 2;
+	    var scale_offset_y = (scaled_height - _button_height) / 2;
 		// Draw the button background.
 		var _sprite_index = (_mouse_hovered) ? 1 : 0;
-		draw_sprite_stretched(s_index, _sprite_index, xx, yy, _button_width, _button_height);
+		draw_sprite_stretched(s_index, _sprite_index, xx - scale_offset_x, yy - scale_offset_y, scaled_width, scaled_height);
 		// Draw the icon.
 		// if (icon != undefined) draw_sprite(icon, 0, round(xx + 6), round(yy + _button_height / 2));
 		//_button_text.blend(c_black, .2).draw(round(xx + _button_width / 2 + _button_icon_padding + 1), round(yy + _button_height / 2 + 1));
