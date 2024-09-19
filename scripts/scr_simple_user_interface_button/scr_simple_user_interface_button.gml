@@ -86,7 +86,7 @@ function SimpleButton(_x, _y, _parent, _config = {}, _point_control = false) con
 		draw_sprite_stretched(s_index, _sprite_index, xx, yy, _button_width, _button_height);
 		// Draw the icon.
 		// if (icon != undefined) draw_sprite(icon, 0, round(xx + 6), round(yy + _button_height / 2));
-		_button_text.blend(c_black, .2).draw(round(xx + _button_width / 2 + _button_icon_padding + .5), round(yy + _button_height / 2 + .5));
+		//_button_text.blend(c_black, .2).draw(round(xx + _button_width / 2 + _button_icon_padding + 1), round(yy + _button_height / 2 + 1));
 		_button_text.blend(c_white, 1).draw(round(xx + _button_width / 2 + _button_icon_padding), round(yy + _button_height / 2));
 	}
 }
