@@ -1,0 +1,1 @@
+configuration_manager = new ConfigurationManager();

@@ -6,6 +6,10 @@ controllers = [{
 	controller:				obj_controller_font,
 	controller_ref:			-1,
 	controller_initialized:	false,
+}, {
+	controller:				obj_controller_configuration,
+	controller_ref:			-1,
+	controller_initialized:	false,
 }];
 
 array_foreach(controllers, function(_controller) {
