@@ -2,32 +2,29 @@ _main_menu = new SimpleUI();
 
 var _main = new SimpleGroup("MAIN", 0, 0,,,,true);
 
-_main.add_control(new SimpleButton(50, 30, _main, {
-	text: "[c_black]New Game",
-	width: 200
+_main.add_control(new SimpleButton(50, 50, _main, {
+	text: "[c_white]Play Game",
+	width: 220,
+	sprite: spr_button_purple,
+	icon: "spr_icon_plus",
 }));
 
-_main.add_control(new SimpleButton(50, 42, _main, {
-	text: "[c_black]Continue",
-	width: 200
+_main.add_control(new SimpleButton(50, 60, _main, {
+	text: "[c_black]Achievements",
+	width: 220
 }));
 
-_main.add_control(new SimpleButton(50, 54, _main, {
-	text: "[c_black]Multiplayer",
-	width: 200
+_main.add_control(new SimpleButton(50, 68, _main, {
+	text: "[c_black]Settings",
+	width: 220
 }));
 
-_main.add_control(new SimpleButton(50, 66, _main, {
-	text: "[c_black]Load Game",
-	width: 200
-}));
-
-_main.add_control(new SimpleButton(50, 78, _main, {
+_main.add_control(new SimpleButton(50, 76, _main, {
 	text: "[c_black]Credits",
-	width: 200
+	width: 220
 }));
 
-_main.add_control(new SimpleButton(50, 90, _main, {
+_main.add_control(new SimpleButton(50, 84, _main, {
 	text: "[c_black]Exit",
 	width: 200,
 	callback: function() {

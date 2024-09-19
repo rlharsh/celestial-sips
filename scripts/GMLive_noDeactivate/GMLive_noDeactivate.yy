@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_dialogue",
+  "%Name":"GMLive_noDeactivate",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_dialogue",
+  "name":"GMLive_noDeactivate",
   "parent":{
-    "name":"Dialogue System",
-    "path":"folders/Scripts/Components/Dialogue System.yy",
+    "name":"GMLive",
+    "path":"folders/Extensions/GMLive.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
