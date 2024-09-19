@@ -25,15 +25,15 @@
   "name":"spr_button_icon_default",
   "nineSlice":{
     "$GMNineSliceData":"",
-    "bottom":2,
+    "bottom":5,
     "enabled":true,
     "guideColour":[4294902015,4294902015,4294902015,4294902015,],
     "highlightColour":1728023040,
     "highlightStyle":1,
-    "left":2,
+    "left":3,
     "resourceType":"GMNineSliceData",
     "resourceVersion":"2.0",
-    "right":2,
+    "right":3,
     "tileMode":[
       0,
       0,
@@ -41,7 +41,7 @@
       0,
       0,
     ],
-    "top":2,
+    "top":3,
   },
   "origin":0,
   "parent":{

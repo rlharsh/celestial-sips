@@ -27,6 +27,6 @@ function configuration_manger_write_default(_file){
 		file_text_write_string(_config_file, json_stringify(game_options, true));
 		file_text_close(_config_file);
 	} catch (_e) {
-		show_debug_message("Error saving file: " + _e);
+		show_debug_message(_e);
 	}
 }
