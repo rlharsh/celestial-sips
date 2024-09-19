@@ -124,6 +124,7 @@
     {"$GMFolder":"","%Name":"FC_DialogueSystem","folderPath":"folders/Sounds/FC_DialogueSystem.yy","name":"FC_DialogueSystem","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Buttons","folderPath":"folders/Sprites/Buttons.yy","name":"Buttons","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Icons","folderPath":"folders/Sprites/Icons.yy","name":"Icons","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"chatterbox_license.txt","CopyToMask":-1,"filePath":"datafiles","name":"chatterbox_license.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -835,6 +836,7 @@
     {"id":{"name":"spr_dialogue_pointer","path":"sprites/spr_dialogue_pointer/spr_dialogue_pointer.yy",},},
     {"id":{"name":"spr_icon_apple","path":"sprites/spr_icon_apple/spr_icon_apple.yy",},},
     {"id":{"name":"spr_icon_config","path":"sprites/spr_icon_config/spr_icon_config.yy",},},
+    {"id":{"name":"spr_icon_journal","path":"sprites/spr_icon_journal/spr_icon_journal.yy",},},
     {"id":{"name":"spr_synth_engine_demo_bg","path":"sprites/spr_synth_engine_demo_bg/spr_synth_engine_demo_bg.yy",},},
     {"id":{"name":"spr_test_avatar","path":"sprites/spr_test_avatar/spr_test_avatar.yy",},},
   ],

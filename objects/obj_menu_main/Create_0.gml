@@ -29,7 +29,16 @@ _main.add_control(new SimpleButton(50, 78, _main, {
 
 _main.add_control(new SimpleButton(50, 90, _main, {
 	text: "[c_black]Exit",
-	width: 200
+	width: 200,
+	callback: function() {
+		game_end(0);	
+	}
+}));
+
+_main.add_control(new SimpleIconButton(1, 99, _main, {
+	icon: spr_icon_journal,
+	mouseover: true,
+	alignment: UI_DISPLAY_ALIGNMENT.BOTTOM_LEFT,
 }));
 
 var _main_page = new SimplePage("UI_MAIN");

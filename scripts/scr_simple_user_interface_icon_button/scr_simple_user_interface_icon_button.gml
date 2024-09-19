@@ -33,24 +33,24 @@ function SimpleIconButton(_x, _y, _parent, _config = undefined, _point_control =
 		}
 		
 		if (alignment == UI_DISPLAY_ALIGNMENT.MIDDLE_CENTER) {
-			xx				= round(xx - _button_width / 2);
-			yy				= round(yy - _button_height / 2);
+			xx				= round(xx - width / 2);
+			yy				= round(yy - height / 2);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.TOP_LEFT) {
 			xx				= round(xx);
 			yy				= round(yy);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.TOP_RIGHT) {
-			xx				= round(xx - _button_width);
+			xx				= round(xx - width);
 			yy				= round(yy);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_LEFT) {
 			xx				= round(xx);
-			yy				= round(yy - _button_height);
+			yy				= round(yy - height);
 		}
 		if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_RIGHT) {
-			xx				= round(xx - _button_width);
-			yy				= round(yy - _button_height);
+			xx				= round(xx - width);
+			yy				= round(yy - height);
 		}
 		var _mouse_x = mouse_x;
 		var _mouse_y = mouse_y;
