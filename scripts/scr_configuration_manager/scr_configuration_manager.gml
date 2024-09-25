@@ -19,12 +19,34 @@ function ConfigurationManager() constructor {
 	config_page_audio		= new SimplePage("GAME_CONFIGURATION_AUDIO");
 	config_page_display		= new SimplePage("GAME_CONFIGURATION_DISPLAY");
 	
-	var _config_page_gameplay_group	= new SimpleGroup("CONFIG_GAMEPLAY", 0, 0,,,,true);
-	_config_page_gameplay_group.add_control(new SimpleSprite(0, 0, spr_button_default, 0, _config_page_gameplay_group, {
-		width: 200,
+	var _config_page_gameplay_group	= new SimpleGroup("CONFIG_GAMEPLAY", 0, 0, 400, display_get_gui_height(), false, false, {
+		center_x: true,
+		center_y: true,
+	});
+	_config_page_gameplay_group.add_control(new SimpleSprite(50, 50, spr_button_default, 0, _config_page_gameplay_group, {
+		width:  200,
 		height: 200,
 	}));
-	_config_page_gameplay_group.add_control(new SimpleText(0, 0, "[rainbow]Hello World!", _config_page_gameplay_group, false));
+	_config_page_gameplay_group.add_control(new SimpleIconButton(118, 52, _config_page_gameplay_group, {
+		icon: spr_icon_gameplay
+	}, true));
+	_config_page_gameplay_group.add_control(new SimpleIconButton(142, 52, _config_page_gameplay_group, {
+		icon: spr_icon_display
+	}, true));
+	_config_page_gameplay_group.add_control(new SimpleIconButton(166, 52, _config_page_gameplay_group, {
+		icon: spr_icon_audio
+	}, true));
+	_config_page_gameplay_group.add_control(new SimpleIconButton(190, 52, _config_page_gameplay_group, {
+		icon: spr_icon_controls
+	}, true));
+	
+	_config_page_gameplay_group.add_control(new SimpleButton(50, 80, _config_page_gameplay_group,{
+		text: "Back",	
+		width: 200,
+		callback: function() {
+			configuration_manager_hide_options();
+		}
+	}, false));
 	
 	config_page_gameplay.add_group(_config_page_gameplay_group);
 	
@@ -36,8 +58,20 @@ function ConfigurationManager() constructor {
 	
 	
 	static draw = function() {
+		live_name = "config:draw";
+		if (live_call()) return live_result;
+		
 		if (!configuration_showing) return;
 		
+		draw_set_color(c_black);
+		draw_set_alpha(.8);
+		draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+		draw_set_color(c_white);
+		draw_set_alpha(1);
 		config_ui.draw();
+	}
+	
+	static step = function() {
+		config_ui.step();	
 	}
 }

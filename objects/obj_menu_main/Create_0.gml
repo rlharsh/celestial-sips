@@ -5,30 +5,29 @@ var _main = new SimpleGroup("MAIN", 0, 0,,,,true);
 _main.add_control(new SimpleButton(50, 50, _main, {
 	text: "[c_white]Play Game",
 	width: 220,
-	sprite: spr_button_purple,
-	icon: "spr_icon_plus",
 }));
 
 _main.add_control(new SimpleButton(50, 60, _main, {
-	text: "[c_black]Achievements",
+	text: "[c_white]Achievements",
 	width: 220
 }));
 
-_main.add_control(new SimpleButton(50, 68, _main, {
-	text: "[c_black]Settings",
+_main.add_control(new SimpleButton(50, 70, _main, {
+	text: "[c_white]Settings",
 	width: 220,
 	callback: function() {
 		configuration_manager_show_options();	
 	}
 }));
 
-_main.add_control(new SimpleButton(50, 76, _main, {
-	text: "[c_black]Credits",
+
+_main.add_control(new SimpleButton(50, 80, _main, {
+	text: "[c_white]Credits",
 	width: 220
 }));
 
-_main.add_control(new SimpleButton(50, 84, _main, {
-	text: "[c_black]Exit",
+_main.add_control(new SimpleButton(50, 90, _main, {
+	text: "[c_white]Exit",
 	width: 200,
 	callback: function() {
 		game_end(0);	

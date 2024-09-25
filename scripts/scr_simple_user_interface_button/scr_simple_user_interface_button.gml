@@ -29,7 +29,7 @@ function SimpleButton(_x, _y, _parent, _config = {}, _point_control = false) con
 	_button_text			= scribble($"[fa_center][fa_middle]{_icon_text} {text}");
 	_button_text_width		= _button_text.get_width();
 	_button_width			= (width == undefined) ? ((icon == undefined) ? _button_text_width + 14 : _button_text_width + sprite_get_width(icon) + 14) : 100;
-	_button_height			= (height == undefined) ? _button_text.get_height() + 14 : 30;
+	_button_height			= (height == undefined) ? _button_text.get_height() + 10 : 30;
 	_button_icon_padding	= (icon == undefined) ? 0 : 6;
 	
 	_mouse_hovered			= false;
@@ -38,63 +38,74 @@ function SimpleButton(_x, _y, _parent, _config = {}, _point_control = false) con
 	animation_played		= false;
 
 	static step = function() {
-		if (point_control) {
-			xx					= b_x;
-			yy					= b_y;
-		} else {
-			xx					= b_x * parent.width / 100;
-			yy					= b_y * parent.height / 100;
-		}
-		
-		if (alignment == UI_DISPLAY_ALIGNMENT.MIDDLE_CENTER) {
-			xx				= round(xx - _button_width / 2);
-			yy				= round(yy - _button_height / 2);
-		}
-		if (alignment == UI_DISPLAY_ALIGNMENT.TOP_LEFT) {
-			xx				= round(xx);
-			yy				= round(yy);
-		}
-		if (alignment == UI_DISPLAY_ALIGNMENT.TOP_RIGHT) {
-			xx				= round(xx - _button_width);
-			yy				= round(yy);
-		}
-		if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_LEFT) {
-			xx				= round(xx);
-			yy				= round(yy - _button_height);
-		}
-		if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_RIGHT) {
-			xx				= round(xx - _button_width);
-			yy				= round(yy - _button_height);
-		}
-		
-		var _mouse_x = mouse_x;
-		var _mouse_y = mouse_y;
-		
-		// Check if the mouse is in the button paremeter.
-		if (point_in_rectangle(_mouse_x, _mouse_y, xx, yy, xx + _button_width, yy + _button_height)) {
-			_mouse_hovered = true;
-			
-			if (!animation_played) {
-				TweenFire(self, EaseOutQuad, TWEEN_MODE_ONCE, true, 0, 0.1, "scale", 1.0, 1.1);
-				scale_tween = TweenFire(self, EaseInQuad, TWEEN_MODE_ONCE, true, 0.1, 0.1, "scale", 1.1, 1.0);
-				animation_played = true;
-			}
-			
-			// Check if the left moust button has been pressed.
-			if (input_mouse_check_released(mb_left)) {
-				audio_play_sound(JDSherbert___Ultimate_UI_SFX_Pack___Cursor___4, 0, 0);
-				callback();
-			}
-			if (input_mouse_check_pressed(mb_left)) {
-				TweenFire(self, EaseOutQuad, TWEEN_MODE_ONCE, true, 0, 0.1, "scale", 1.0, 0.9);
-				scale_tween = TweenFire(self, EaseInQuad, TWEEN_MODE_ONCE, true, 0.1, 0.1, "scale", 0.9, 1.0);
-				animation_played = true;
-			}
-		} else {
-			_mouse_hovered = false;	
-			animation_played = false;
-		}
+    // Update xx and yy based on alignment and scaling logic
+    if (point_control) {
+        xx = b_x;
+        yy = b_y;
+    } else {
+        xx = b_x * parent.width / 100;
+        yy = b_y * parent.height / 100;
     }
+
+    // Align the button based on its alignment setting
+    if (alignment == UI_DISPLAY_ALIGNMENT.MIDDLE_CENTER) {
+        xx = round(xx - _button_width / 2);
+        yy = round(yy - _button_height / 2);
+    }
+    if (alignment == UI_DISPLAY_ALIGNMENT.TOP_LEFT) {
+        xx = round(xx);
+        yy = round(yy);
+    }
+    if (alignment == UI_DISPLAY_ALIGNMENT.TOP_RIGHT) {
+        xx = round(xx - _button_width);
+        yy = round(yy);
+    }
+    if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_LEFT) {
+        xx = round(xx);
+        yy = round(yy - _button_height);
+    }
+    if (alignment == UI_DISPLAY_ALIGNMENT.BOTTOM_RIGHT) {
+        xx = round(xx - _button_width);
+        yy = round(yy - _button_height);
+    }
+
+    // Calculate the scaled button dimensions and offsets
+    var scaled_width = _button_width * scale;
+    var scaled_height = _button_height * scale;
+    var scale_offset_x = (scaled_width - _button_width) / 2;
+    var scale_offset_y = (scaled_height - _button_height) / 2;
+
+    // Get the mouse position
+    var _mouse_x = mouse_x;
+    var _mouse_y = mouse_y;
+
+    // Check if the mouse is within the button's scaled boundaries
+    if (point_in_rectangle(_mouse_x, _mouse_y, parent.xx + xx - scale_offset_x, parent.yy + yy - scale_offset_y, parent.xx + xx + scaled_width, parent.yy + yy + scaled_height)) {
+        _mouse_hovered = true;
+
+        // Play the hover animation if it hasn't been played yet
+        if (!animation_played) {
+            TweenFire(self, EaseOutQuad, TWEEN_MODE_ONCE, true, 0, 0.1, "scale", 1.0, 1.1);
+            scale_tween = TweenFire(self, EaseInQuad, TWEEN_MODE_ONCE, true, 0.1, 0.1, "scale", 1.1, 1.0);
+            animation_played = true;
+        }
+
+        // Handle mouse clicks
+        if (input_mouse_check_released(mb_left)) {
+            audio_play_sound(JDSherbert___Ultimate_UI_SFX_Pack___Cursor___4, 0, 0);
+            callback();
+        }
+        if (input_mouse_check_pressed(mb_left)) {
+            TweenFire(self, EaseOutQuad, TWEEN_MODE_ONCE, true, 0, 0.1, "scale", 1.0, 0.9);
+            scale_tween = TweenFire(self, EaseInQuad, TWEEN_MODE_ONCE, true, 0.1, 0.1, "scale", 0.9, 1.0);
+            animation_played = true;
+        }
+    } else {
+        _mouse_hovered = false;
+        animation_played = false;
+    }
+}
+
     
     static draw = function() {
 	    var scaled_width = _button_width * scale;

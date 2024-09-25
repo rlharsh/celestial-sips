@@ -21,4 +21,5 @@ array_foreach(fonts_database, function(_font) {
 	}
 });
 
+//scribble_font_set_default("fnt_default");
 initialized = true;

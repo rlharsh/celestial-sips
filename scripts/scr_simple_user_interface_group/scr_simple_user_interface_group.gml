@@ -1,4 +1,4 @@
-function SimpleGroup(_name, _x, _y, _width = undefined, _height = display_get_gui_height(), _backdrop = false, _adaptive_width = false) constructor {
+function SimpleGroup(_name, _x, _y, _width = undefined, _height = display_get_gui_height(), _backdrop = false, _adaptive_width = false, _config = {}) constructor {
 	name				= _name;
 	xx					= _x;
 	yy					= _y;
@@ -9,6 +9,10 @@ function SimpleGroup(_name, _x, _y, _width = undefined, _height = display_get_gu
 	backdrop			= _backdrop;
 	adaptive_width		= _adaptive_width;
 	initial_gui_width	= width;
+	_s_x				= _x;
+	_s_y				= _y;
+	center_x			= _config[$ "center_x"] ?? false;
+	center_y			= _config[$ "center_y"] ?? false;
 	
 	static add_control = function(_control) {
 		_control.xx += xx;
@@ -18,42 +22,57 @@ function SimpleGroup(_name, _x, _y, _width = undefined, _height = display_get_gu
 	}
 	
 	static step = function() {
-		if (adaptive_width) {
-			var _current_gui_width	= display_get_gui_width();
-			var _scale_factor		= _current_gui_width / initial_gui_width;
-			
-			width					= round(initial_gui_width * _scale_factor);
-		}
-		
-		for (var _i = 0; _i < array_length(controls); _i++) {
-			controls[_i].step();	
-		}
+	    var current_gui_width  = display_get_gui_width();
+	    var current_gui_height = display_get_gui_height();
+    
+	    if (adaptive_width) {
+	        var scale_factor = current_gui_width / initial_gui_width;
+	        width = round(initial_gui_width * scale_factor);
+	    }
+
+	    // Recalculate center position
+	    if (center_x) {
+	        xx = round(current_gui_width / 2 - (width / 2));
+	    }
+	    if (center_y) {
+	        yy = round(current_gui_height / 2 - (height / 2));
+	    }
+
+	    // Update controls positions if needed
+	    for (var i = 0; i < array_length(controls); i++) {
+	        controls[i].step();
+	    }
 	}
 	
 	static draw = function() {
-		if (!surface_exists(surface) || surface_get_width(surface) != width || surface_get_height(surface) != height) {
-            if (surface_exists(surface)) {
-                surface_free(surface);
-			}
-            surface = surface_create(width, height);
+    if (!surface_exists(surface) || surface_get_width(surface) != width || surface_get_height(surface) != height) {
+        if (surface_exists(surface)) {
+            surface_free(surface);
         }
-		surface_set_target(surface);
-        draw_clear_alpha(c_white, 0);
-		
-		if (backdrop) {
-			draw_set_alpha(.8);
-			draw_set_color(c_black);
-			draw_rectangle(xx, yy, width, height, false);
-			draw_set_color(c_white);
-			draw_set_alpha(1);
-		}
-		
-		for (var _i = 0; _i < array_length(controls); _i++) {
-			controls[_i].draw();
-		}
-		surface_reset_target();
-		draw_surface(surface, round(xx), round(yy));
-	}
+        surface = surface_create(width, height);
+    }
+    
+    surface_set_target(surface);
+    draw_clear_alpha(c_white, 0);
+
+    // Draw backdrop correctly
+    draw_set_color(c_white);
+    if (backdrop) {
+        draw_set_alpha(1);
+        draw_set_color(c_red);
+        draw_rectangle(0, 0, width, height, false); // (0, 0) since we're drawing relative to the surface
+        draw_set_color(c_white);
+        draw_set_alpha(1);
+    }
+
+    // Draw all controls
+    for (var i = 0; i < array_length(controls); i++) {
+        controls[i].draw();
+    }
+
+    surface_reset_target();
+    draw_surface(surface, round(xx), round(yy)); // Draw the surface at the calculated position
+}
 	
 	static destroy = function() {
 		if (surface_exists(surface)) {

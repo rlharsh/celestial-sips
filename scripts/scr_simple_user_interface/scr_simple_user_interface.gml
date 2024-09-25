@@ -11,14 +11,20 @@ function SimpleUI() constructor
     static add_group = function(_group) {
         array_push(groups, _group);
     }
-    
+	
     static step = function() {
         if (array_length(pages) < 1 || selected_page = -1) return;
+		
+		live_name = "simple_ui:step";
+		if (live_call()) return live_result;
         
         pages[selected_page].step();
     }
     
     static draw = function() {
+		live_name = "simple_ui:draw";
+		if (live_call()) return live_result;
+		
         if (array_length(pages) < 1 || selected_page = -1) return;
         
         pages[selected_page].draw();

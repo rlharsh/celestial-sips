@@ -67,6 +67,9 @@ function SimpleIconButton(_x, _y, _parent, _config = undefined, _point_control =
 	}
 	
 	static draw = function() {
+		live_name = "simple_icon_button:draw";
+		if (live_call()) return live_result;
+		
 		var _i_index = (_mouse_hovered) ? 1 : 0;
 		draw_sprite_stretched(spr_button_icon_default, _i_index, xx, yy, width, height);
 		
