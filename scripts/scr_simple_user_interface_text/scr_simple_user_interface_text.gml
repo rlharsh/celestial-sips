@@ -57,8 +57,8 @@ function SimpleText(_x, _y, _text, _parent, _shadow = false, _config = {}, _poin
 		}
 		
 		if (shadow) {
-			text_object.blend(c_black, .6).draw(xx + 1, yy + 1);	
+			text_object.blend(c_black, .6).draw(parent.xx + xx + 1, parent.yy + yy + 1);	
 		}
-		text_object.blend(c_white, 1).draw(xx, yy);
+		text_object.blend(c_white, 1).draw(parent.xx + xx, parent.yy + yy);
 	}
 }

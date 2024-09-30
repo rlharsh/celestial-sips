@@ -17,6 +17,12 @@ function SimpleUI() constructor
 		
 		live_name = "simple_ui:step";
 		if (live_call()) return live_result;
+		
+		for (var _i = 0; _i < array_length(pages); _i++) {
+			if (pages[_i].persist) {
+				pages[_i].step();	
+			}
+		}
         
         pages[selected_page].step();
     }
@@ -26,6 +32,12 @@ function SimpleUI() constructor
 		if (live_call()) return live_result;
 		
         if (array_length(pages) < 1 || selected_page = -1) return;
+
+		for (var _i = 0; _i < array_length(pages); _i++) {
+			if (pages[_i].persist) {
+				pages[_i].draw();	
+			}
+		}
         
         pages[selected_page].draw();
     }

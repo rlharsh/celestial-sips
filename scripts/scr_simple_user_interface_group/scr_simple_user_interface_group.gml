@@ -58,17 +58,21 @@ function SimpleGroup(_name, _x, _y, _width = undefined, _height = display_get_gu
     // Draw backdrop correctly
     draw_set_color(c_white);
     if (backdrop) {
+		/*
         draw_set_alpha(1);
         draw_set_color(c_red);
         draw_rectangle(0, 0, width, height, false); // (0, 0) since we're drawing relative to the surface
         draw_set_color(c_white);
         draw_set_alpha(1);
+		*/
     }
 
     // Draw all controls
     for (var i = 0; i < array_length(controls); i++) {
         controls[i].draw();
     }
+	
+	//draw_text(10, 10, $"WIDTH: {width}\nXX: {xx}\nYY: {yy}");
 
     surface_reset_target();
     draw_surface(surface, round(xx), round(yy)); // Draw the surface at the calculated position

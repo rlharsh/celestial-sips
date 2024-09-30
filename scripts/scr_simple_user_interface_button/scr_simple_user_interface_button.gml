@@ -117,7 +117,7 @@ function SimpleButton(_x, _y, _parent, _config = {}, _point_control = false) con
 		if (input_mouse_check(mb_left) && _mouse_hovered) {
 			_sprite_index = 2;	
 		}
-		draw_sprite_stretched(s_index, _sprite_index, xx - scale_offset_x, yy - scale_offset_y, scaled_width, scaled_height);
+		draw_sprite_stretched(s_index, _sprite_index, xx - scale_offset_x, yy - scale_offset_y, scaled_width, scaled_height + 4);
 		// Draw the icon.
 		// if (icon != undefined) draw_sprite(icon, 0, round(xx + 6), round(yy + _button_height / 2));
 		//_button_text.blend(c_black, .2).draw(round(xx + _button_width / 2 + _button_icon_padding + 1), round(yy + _button_height / 2 + 1));

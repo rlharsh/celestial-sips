@@ -1,6 +1,7 @@
-function SimplePage(_name) constructor {
+function SimplePage(_name, _persist = false) constructor {
 	name	= _name;
 	groups	= [];
+	persist	= _persist;
 	
 	static add_group = function(_group) {
 		array_push(groups, _group);	

@@ -55,7 +55,7 @@ function SimpleIconButton(_x, _y, _parent, _config = undefined, _point_control =
 		var _mouse_x = mouse_x;
 		var _mouse_y = mouse_y;
 		
-		if (point_in_rectangle(_mouse_x, _mouse_y, xx, yy, xx + width, yy + height)) {
+		if (point_in_rectangle(_mouse_x, _mouse_y, parent.xx + xx, parent.yy + yy, parent.xx + xx + width, parent.yy + yy + height)) {
 			_mouse_hovered = true;	
 			if (input_mouse_check_released(mb_left)) {
 				audio_play_sound(JDSherbert___Ultimate_UI_SFX_Pack___Cursor___4, 0, 0);

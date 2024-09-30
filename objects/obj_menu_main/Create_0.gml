@@ -2,6 +2,8 @@ _main_menu = new SimpleUI();
 
 var _main = new SimpleGroup("MAIN", 0, 0,,,,true);
 
+_main.add_control(new SimpleSprite(50, 26, spr_testing, 0, _main));
+
 _main.add_control(new SimpleButton(50, 50, _main, {
 	text: "[c_white]Play Game",
 	width: 220,

@@ -1,3 +1,3 @@
 if (global.configuration_showing) return;
 
-_main_menu.draw();
+_main_menu.step();
