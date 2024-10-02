@@ -58,13 +58,13 @@ function SimpleGroup(_name, _x, _y, _width = undefined, _height = display_get_gu
     // Draw backdrop correctly
     draw_set_color(c_white);
     if (backdrop) {
-		/*
+		
         draw_set_alpha(1);
         draw_set_color(c_red);
         draw_rectangle(0, 0, width, height, false); // (0, 0) since we're drawing relative to the surface
         draw_set_color(c_white);
         draw_set_alpha(1);
-		*/
+		
     }
 
     // Draw all controls
